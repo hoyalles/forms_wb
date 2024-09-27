@@ -1,0 +1,281 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #EAEFF2;    
+}
+
+h1 {
+font-size: 26px;
+font-weight: bold;
+margin-bottom: 20px;
+color: #334E68;
+}
+
+form .content {
+margin-bottom: 18px;
+}
+
+label {
+display: block;
+font-size: 15px;
+font-weight: 500;
+color: #4E5D6C;
+margin-bottom: 10px;
+}
+
+textarea {
+max-width: 95%;
+}
+
+input[type="text"], textarea, select {
+display: block;
+width: 92%;
+padding: 10px 14px;
+border: 1px solid #B0C4D4;
+border-radius: 6px;
+font-size: 15px;
+color: #2E3C48;
+}
+
+input[type="text"]:focus, textarea:focus, select:focus {
+outline: none;
+border-color: #3F83F8;
+}
+
+button {
+padding: 10px 18px;
+font-size: 15px;
+font-weight: 600;
+border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #20232A;
+  padding: 5px 12px;
+}
+
+.navbar-menu {
+  display: flex;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  font-size: 19px;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto; 
+  padding: 36px 18px; 
+}
+
+.form-title {
+  font-size: 26px; 
+  font-weight: bold; 
+  margin-bottom: 20px;
+  color: #455A64;
+}
+
+.card-container {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 26px;
+}
+
+.card-form {
+  border: 2px solid #CFD8DC; 
+  border-radius: 10px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+  background-color: #F0F4F8; 
+  padding: 24px 22px; 
+}
+
+.card-form h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 21px; 
+  font-weight: 600; 
+}
+
+.edit_form_btn,
+.card-form a {
+  color: #2563EB;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 14px; 
+  transition: color 0.3s; 
+}
+
+.edit_form_btn:hover,
+.card-form a:hover {
+  color: #1D4ED8;
+}
+
+.container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  padding: 34px 18px; 
+}
+
+.form-description {
+  font-size: 15px;
+  font-weight: 600;
+  opacity: 0.75;
+  color: #5A6473; 
+  margin-bottom: 26px; 
+}
+
+.question-title {
+  font-size: 21px; 
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #455A64; 
+}
+
+.question-list {
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.question-content {
+  background-color: #FFFFFF; 
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15); 
+  border-radius: 10px; 
+  padding: 26px; 
+  margin-bottom: 18px; 
+}
+
+.question-text {
+  font-size: 19px; 
+  color: #2D3748; 
+  margin-bottom: 10px; 
+  display: block; 
+}
+
+.question-type {
+  font-size: 15px; 
+  color: #4B5563; 
+  margin-bottom: 18px; 
+}
+
+.choice-list {
+  list-style-type: disc; 
+  padding-left: 22px; 
+}
+
+.choice-text {
+  color: #374151;
+  margin: 4px 5px; 
+}
+
+.submit-container {
+  margin-top: 34px; 
+}
+
+.submit-view-container {
+margin-top: 34px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+gap: 18px;
+}
+
+.submit-button {
+  display: inline-block;
+  background-color: #2563EB; 
+  color: white; 
+  font-weight: bold; 
+  padding: 14px 18px; 
+  border-radius: 8px;
+  transition: background-color 0.3s; 
+}
+
+.submit-button:hover {
+  background-color: #1E40AF; 
+}
+
+#questionsContainer {
+margin-top: 34px;
+}
+
+.choices-container {
+margin-top: 18px;
+}
+
+.choice-item {
+display: flex;
+align-items: center;
+}
+
+.create-btn {
+background-color: #34D399;
+color: white;
+}
+
+.create-btn:hover {
+background-color: #2D9A72;
+}
+
+.btn-add-question {
+background-color: #60A5FA;
+color: white;
+}
+
+.btn-add-question:hover {
+background-color: #3B82F6;
+}
+
+.remove-question, .remove-choice {
+background-color: #EF4444;
+color: white;
+}
+
+.remove-choice {
+margin-top: 4px;
+}
+
+.remove-question:hover, .remove-choice:hover {
+background-color: #DC2626;
+}
+
+.add-choice {
+margin-top: 10px;
+background-color: #34D399;
+color: white;
+}
+
+.add-choice:hover {
+background-color: #2D9A72;
+}
+
+.input-group {
+  display: flex;
+}
+
+.text-error {
+  color: #E53E3E;
+  padding-left: 6px;
+  font-size: 15px;
+  margin-top: 6px;
+}

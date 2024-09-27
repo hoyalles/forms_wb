@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Visualizar Formulário{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="form-title">{{ form.title }}</h1>
+    <p class="form-description">{{ form.description }}</p>
+
+    <h3 class="question-title">Perguntas</h3>
+    <ul class="question-list">
+        {% for question in form.questions %}
+        <li class="question-content">
+            <strong class="question-text">{{ question.text }}</strong>
+            <p class="question-type" style="font-weight: bold; color: #555;">
+                Tipo:
+                {% if question.question_type == QuestionType.SHORT_ANSWER %}
+                <span>Resposta Curta</span> 
+                {% elif question.question_type == QuestionType.LONG_ANSWER %}
+                <span>Resposta Longa</span> 
+                {% elif question.question_type == QuestionType.MULTIPLE_CHOICE %}
+                <span>Escolha Múltiplas</span> 
+                {% elif question.question_type == QuestionType.CHECKBOX %}
+                <span>Caixa de Seleção</span> 
+                {% endif %}
+            </p>
+            {% if question.choices %}
+            <ul class="choice-list">
+                {% for choice in question.choices %}
+                <li class="choice-text">{{ choice.text }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div class="submit-view-container">
+        <a href="{{ url_for('ObterResposta', form_id=form.id) }}" class="submit-button">
+            Responder formulário
+        </a>
+    </div>
+</div>
+{% endblock %}

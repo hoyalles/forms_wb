@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Criar Formulário{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Criar Formulário</h1>
+    <form id="createForm" method="POST" action="{{ url_for('main.create_form') }}">
+        <div class="content">
+            <label for="title">Título</label>
+            <input type="text" class="form-input" id="title" name="title" required>
+            <span id="titleError" class="text-error" style="display: none;">O título não pode ultrapassar 200 caracteres.</span>
+        </div>
+        <div class="content">
+            <label for="description">Descrição</label>
+            <textarea class="form-input" id="description" name="description"></textarea>
+        </div>
+        <h3>Perguntas</h3>
+        <div id="questionsContainer"></div>
+        <button type="button" id="addQuestion" class="btn-add-question">Adicionar Pergunta</button>
+        <button type="submit" class="create-btn">Criar Formulário</button>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script src="{{ url_for('static', filename='js/validar.js') }}"></script>
+{% endblock %}

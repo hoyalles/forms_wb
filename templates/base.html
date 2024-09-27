@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/static/css/style.css"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>{% block title %}Formulário{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+</head>
+<body>
+    <nav class="navbar">
+        <a class="navbar-title" href="/">Formulários</a>
+        <div class="navbar-menu">
+            <ul class="navbar-links">
+                <li class="navbar-item">
+                    <a class="navbar-link" href="{{ url_for('list_forms') }}">Formulários</a>
+                </li>
+                <li class="navbar-item">
+                    <a class="navbar-link" href="{{ url_for('create_form') }}">Criar Formulário</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="main-content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

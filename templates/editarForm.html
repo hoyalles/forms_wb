@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar Formulário{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Editar Formulário</h1>
+    <form id="editForm" method="POST" action="{{ url_for('main.edit_form', form_id=form.id) }}">
+        <div class="content">
+            <label for="title">Título</label>
+            <input type="text" class="form-input" id="title" name="title" value="{{ form.title }}" required>
+            <span id="titleError" class="text-error" style="display: none;">O título não pode ultrapassar 200
+                caracteres.</span>
+        </div>
+        <div class="content">
+            <label for="description">Descrição</label>
+            <textarea class="form-input" id="description" name="description">{{ form.description }}</textarea>
+        </div>
+
+        <h3>Perguntas Existentes</h3>
+        <div id="existingQuestionsContainer">
+            {% for question in form.questions %}
+            <div class="question-content">
+                <div class="content">
+                    <label for="questionText">Pergunta</label>
+                    <input type="text" class="question-text form-input" value="{{ question.text }}" disabled>
+                </div>
+                <div class="content">
+                    <label for="questionType">Tipo de Pergunta</label>
+                    <select class="question-type form-input" name="question_type[]" disabled>
+                        <option value="short_answer" {% if question.question_type == QuestionType.SHORT_ANSWER %}selected{% endif %}>Resposta Curta</option>
+                        <option value="long_answer" {% if question.question_type == QuestionType.LONG_ANSWER %}selected{% endif %}>Resposta Longa</option>
+                        <option value="multiple_choice" {% if question.question_type == QuestionType.MULTIPLE_CHOICE %}selected{% endif %}>Múltipla Escolha</option>
+                        <option value="checkbox" {% if question.question_type == QuestionType.CHECKBOX %}selected{% endif %}>Caixa de Seleção</option>
+                    </select>
+                </div>
+                {% if question.question_type in [QuestionType.MULTIPLE_CHOICE, QuestionType.CHECKBOX] %}
+                <div class="content choices-container">
+                    <label for="choices">Opções</label>
+                    <div class="choices">
+                        {% for choice in question.choices %}
+                        <input type="text" class="form-input choice-text" value="{{ choice.text }}" disabled>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+
+        <h3>Adicionar Pergunta</h3>
+        <div id="questionsContainer"></div>
+        <button type="button" id="addQuestion" class="btn btn-primary btn-add-question">Adicionar Nova Pergunta</button>
+        <button type="submit" class="create-btn">Salvar Alterações</button>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/scripts,js') }}"></script>
+<script src="{{ url_for('static', filename='js/validar.js') }}"></script>
+{% endblock %}
